@@ -36,20 +36,34 @@ function render() {
       render();
     };
 
+    const edit = document.createElement("button");
+    edit.textContent = "Redigera";
+    edit.onclick = () => {
+      const newText = prompt("Redigera todo:", t.text);
+      if (newText !== null && newText.trim() !== "") {
+        todos[i].text = newText.trim();
+        render();
+      }
+    };
+
     const del = document.createElement("button");
     del.textContent = "Ta bort";
     del.onclick = () => {
-      todos.splice(i, 1);
-      render();
+    const confirmDelete = confirm("Är du säker på att du vill ta bort denna todo?");
+     if (confirmDelete) {
+    todos.splice(i, 1);
+    render();
+     }
     };
 
-    li.append(label, status, spacer, toggle, del);
+s
+    li.append(label, status, spacer, toggle, edit, del);
     listEl.appendChild(li);
   });
 
   updateCounter();
-
 }
+
 
 function addTodo(text) {
   todos.unshift({ text, done: false });
