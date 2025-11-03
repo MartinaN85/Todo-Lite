@@ -1,0 +1,41 @@
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background: #fafafa;
+  color: #222;
+}
+
+.container { max-width: 720px; margin: 0 auto; }
+
+.actions { display: flex; gap: 0.5rem; margin: 1rem 0; }
+input { flex: 1; padding: 0.6rem 0.8rem; }
+button { padding: 0.6rem 1rem; cursor: pointer; }
+
+.list { list-style: none; padding: 0; }
+
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background: #12f443a9;
+  border: 3px solid #118809;
+  border-radius: 8px;
+}
+
+.item.done {
+  background: #f44336dd; /* röd bakgrund */
+  color: white;
+  border: 3px solid #9c0505;
+}
+
+.item .spacer { flex: 1; }
+
+.status-label {
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
