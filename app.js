@@ -8,6 +8,11 @@ const listEl = document.getElementById("todoList");
 const addBtn = document.getElementById("addBtn");
 const inputEl = document.getElementById("todoInput");
 
+function updateCounter() {
+  const count = todos.filter(t => !t.done).length;
+  document.getElementById("todoCounter").textContent = `Kvar att göra: ${count}`;
+}
+
 function render() {
   listEl.innerHTML = "";
   todos.forEach((t, i) => {
@@ -41,6 +46,9 @@ function render() {
     li.append(label, status, spacer, toggle, del);
     listEl.appendChild(li);
   });
+
+  updateCounter();
+
 }
 
 function addTodo(text) {
