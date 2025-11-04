@@ -24,7 +24,7 @@ Stöd för att lägga till, redigera, markera och ta bort todos – med visuell 
 - Trello (user stories, estimering med VP/SP/BFB)
 
 ---
-# Trello-brädan
+# Trello-bräda
 
 https://trello.com/b/oaW5Mwxb/todo-lite
 
