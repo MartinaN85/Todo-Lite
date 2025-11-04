@@ -84,8 +84,6 @@ function render() {
     li.append(del);
     listEl.appendChild(li);
   });
-
-  updateCounter();
 }
 
 function addTodo(text) {
