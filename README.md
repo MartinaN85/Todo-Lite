@@ -24,9 +24,8 @@ Stöd för att lägga till, redigera, markera och ta bort todos – med visuell 
 - Trello (user stories, estimering med VP/SP/BFB)
 
 ---
-# Trello-brädan
+# Trello-bräda
 
-jj
 https://trello.com/b/oaW5Mwxb/todo-lite
 
 # Mina reviews
@@ -40,5 +39,4 @@ Mottagen: https://github.com/CarolineLuther/Examination-7-11-25/pull/4
 git clone https://github.com/ditt-repo/todo-lite.git
 cd todo-lite
 ```
-
 ---
