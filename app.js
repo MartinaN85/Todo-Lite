@@ -36,17 +36,52 @@ function render() {
       render();
     };
 
+    // Visa redigeringsknapp endast om todo är aktiv
+    let edit;
+    if (!t.done) {
+      edit = document.createElement("button");
+      edit.textContent = "Redigera";
+      edit.onclick = () => {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = t.text;
+        input.className = "edit-input";
+
+        const save = document.createElement("button");
+        save.textContent = "Spara";
+        save.onclick = () => {
+          const newText = input.value.trim();
+          if (newText) {
+            todos[i].text = newText;
+            render();
+          }
+        };
+
+        const cancel = document.createElement("button");
+        cancel.textContent = "Avbryt";
+        cancel.onclick = () => {
+          render();
+        };
+
+        li.innerHTML = "";
+        li.append(input, save, cancel);
+      };
+    }
+
     const del = document.createElement("button");
     del.textContent = "Ta bort";
-   del.onclick = () => {
-  const confirmDelete = confirm("Är du säker på att du vill ta bort denna todo?");
-  if (confirmDelete) {
-    todos.splice(i, 1);
-    render();
-  }
-};
+    del.onclick = () => {
+      const confirmDelete = confirm("Är du säker på att du vill ta bort denna todo?");
+      if (confirmDelete) {
+        todos.splice(i, 1);
+        render();
+      }
+    };
 
-    li.append(label, status, spacer, toggle, del);
+    // Lägg till knappar i rätt ordning
+    li.append(label, status, spacer, toggle);
+    if (edit) li.append(edit);
+    li.append(del);
     listEl.appendChild(li);
   });
 }
