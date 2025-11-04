@@ -9,8 +9,8 @@ body {
 .container { max-width: 720px; margin: 0 auto; }
 
 .actions { display: flex; gap: 0.5rem; margin: 1rem 0; }
-input { flex: 1; padding: 0.6rem 0.8rem; }
-button { padding: 0.6rem 1rem; cursor: pointer; }
+input { flex: 1; padding: 0.6rem 0.8rem; border-radius: 6px}
+button { padding: 0.6rem 1rem; cursor: pointer; border-radius: 6px}
 
 .counter {
   font-weight: bold;
@@ -42,5 +42,58 @@ button { padding: 0.6rem 1rem; cursor: pointer; }
   font-weight: bold;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.dialog {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 3px solid #9c0505;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #bebebe;
+  border: 1px solid #8e8e8e;
+  color: black;
+  transition: background-color 0.2s ease;
+}
+.dialog button:hover {
+  background-color: #12f443a9;
+  border: 1px solid #118809;
+}
+.dialog button:last-child {
+  background-color: #bebebe;
+  border: 1px solid #8e8e8e;
+}
+.dialog button:last-child:hover {
+  background-color: #f44336dd;
+  border: 1px solid #9c0505;
 }
 

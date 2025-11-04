@@ -8,6 +8,14 @@ const listEl = document.getElementById("todoList");
 const addBtn = document.getElementById("addBtn");
 const inputEl = document.getElementById("todoInput");
 
+// 🔘 Referenser till dialog och overlay
+const dialog = document.getElementById("confirmDialog");
+const overlay = document.getElementById("overlay");
+const confirmYes = document.getElementById("confirmYes");
+const confirmNo = document.getElementById("confirmNo");
+
+let pendingDeleteIndex = null; // 🔁 Håller koll på vilken todo som ska tas bort
+
 function updateCounter() {
   const count = todos.filter(t => !t.done).length;
   document.getElementById("todoCounter").textContent = `Kvar att göra: ${count}`;
@@ -71,24 +79,48 @@ function render() {
     const del = document.createElement("button");
     del.textContent = "Ta bort";
     del.onclick = () => {
-      const confirmDelete = confirm("Är du säker på att du vill ta bort denna todo?");
-      if (confirmDelete) {
-        todos.splice(i, 1);
-        render();
-      }
+      pendingDeleteIndex = i;
+      showDialog();
     };
 
-    // Lägg till knappar i rätt ordning
     li.append(label, status, spacer, toggle);
     if (edit) li.append(edit);
     li.append(del);
     listEl.appendChild(li);
   });
+
+  updateCounter();
 }
 
 function addTodo(text) {
   todos.unshift({ text, done: false });
 }
+
+// 🔘 Visa dialogruta
+function showDialog() {
+  overlay.classList.remove("hidden");
+  dialog.classList.remove("hidden");
+}
+
+// 🔘 Dölj dialogruta
+function closeDialog() {
+  overlay.classList.add("hidden");
+  dialog.classList.add("hidden");
+  pendingDeleteIndex = null;
+}
+
+// 🔘 Hantera "Ja" och "Nej"
+confirmYes.addEventListener("click", () => {
+  if (pendingDeleteIndex !== null) {
+    todos.splice(pendingDeleteIndex, 1);
+    render();
+  }
+  closeDialog();
+});
+
+confirmNo.addEventListener("click", () => {
+  closeDialog();
+});
 
 addBtn.addEventListener("click", () => {
   const val = inputEl.value.trim();
