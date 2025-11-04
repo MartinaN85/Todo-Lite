@@ -28,11 +28,13 @@ Stöd för att lägga till, redigera, markera och ta bort todos – med visuell 
 
 https://trello.com/b/oaW5Mwxb/todo-lite
 
+---
 # Mina reviews
 
 Given: https://github.com/MartinaN85/Todo-Lite/pull/3
 Mottagen: https://github.com/CarolineLuther/Examination-7-11-25/pull/4
 
+---
 # Installation
 
 ```bash
